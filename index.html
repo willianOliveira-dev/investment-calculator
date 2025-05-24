@@ -9,12 +9,48 @@
   </head>
   <body class="grid grid-cols-3 grid-rows-2 gap-4 min-h-[100dvh]">
     <aside
-      class="flex flex-col items-center bg-emerald-500 row-span-2 px-8 py-6"
+      class="flex flex-col items-center bg-bg-container row-span-2 px-8 py-6"
     >
       <h1 class="text-4xl text-white font-bold">Calculadora de Investimento</h1>
       <form>
-        <input disabled value="R$" type="text" />
-        <input type="text" id="starting-amount" />
+        <!--  -->
+        <div>
+          <label for="starting-amount">Investimento Inicial</label>
+          <input type="text" id="starting-amount" placeholder="R$ 0,00" />
+        </div>
+        <!--  -->
+        <div>
+          <label for="">Aportes Adicionais</label>
+          <input type="text" id="" placeholder="R$ 0,00" />
+        </div>
+        <!--  -->
+        <div>
+          <label for="">Prazo</label>
+          <div>
+            <input type="text" placeholder="0" />
+            <select id="evaluation-period">
+              <option value="monthly">Mensal</option>
+              <option value="yearly">Anual</option>
+            </select>
+          </div>
+        </div>
+        <!--  -->
+        <div>
+          <label for="">Rentabilidade</label>
+          <div>
+            <input type="text" placeholder="%" />
+            <select id="">
+              <option value="monthly">Mensal</option>
+              <option value="yearly">Anual</option>
+            </select>
+          </div>
+        </div>
+        <!--  -->
+        <div>
+          <label for="">Impostos sobre lucro</label>
+          <input type="text" placeholder="%" />
+        </div>
+        <!--  -->
       </form>
       <div class="">
         <button>Calcular</button>
