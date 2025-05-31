@@ -10,51 +10,64 @@
   <body class="grid grid-cols-3 grid-rows-2 gap-4 min-h-[100dvh]">
     <aside class="flex items-center justify-center bg-rich-bg row-span-2">
       <div
-        class="flex flex-col gap-4 items-center border-4 border-solid rounded-3xl border-rich-neon px-4 py-8 shadow-2xl shadow-rich-neon/50"
+        class="flex flex-col gap-4 items-center border-4 border-solid rounded-3xl border-rich-neon px-4 py-8 shadow-2xl shadow-rich-neon/50 w-full max-w-lg"
       >
-        <h1 class="text-4xl text-rich-neon text-shadow-lg/30 font-bold">
+        <h1 class="text-3xl text-rich-neon text-shadow-lg/30 font-bold">
           Calculadora de Investimento
         </h1>
-        <form id="investment-form" class="flex flex-col gap-4 w-full max-w-md">
+        <form
+          id="investment-form"
+          class="flex flex-col gap-[0.25rem] w-full max-w-md"
+        >
           <!-- Investimento inicial -->
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col gap-2 min-h-[6.5rem]">
             <label
               class="text-rich-neon text-base font-bold"
               for="starting-amount"
               >Investimento inicial</label
             >
-            <input
-              class="bg-rich-input p-2 border-2 border-solid border-rich-neon rounded-lg text-rich-text"
-              type="text"
-              id="starting-amount"
-              name="starting-amount"
-              placeholder="R$ 0,00"
-              required
-            />
+            <div
+              class="border-2 border-solid border-rich-neon rounded-lg overflow-hidden"
+            >
+              <input
+                class="bg-rich-input p-2 text-rich-text w-full"
+                type="text"
+                id="starting-amount"
+                name="starting-amount"
+                placeholder="R$ 0,00"
+                required
+              />
+            </div>
           </div>
           <!--Aportes adicionais  -->
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col gap-2 min-h-[6.5rem]">
             <label
               class="text-rich-neon text-base font-bold"
               for="additional-contribution"
               >Aportes adicionais</label
             >
-            <input
-              class="bg-rich-input p-2 border-2 border-solid border-rich-neon rounded-lg text-rich-text"
-              type="text"
-              id="additional-contribution"
-              name="additional-contribution"
-              placeholder="R$ 0,00"
-            />
+            <div
+              class="border-2 border-solid border-rich-neon rounded-lg overflow-hidden"
+            >
+              <input
+                class="bg-rich-input p-2 text-rich-text w-full"
+                type="text"
+                id="additional-contribution"
+                name="additional-contribution"
+                placeholder="R$ 0,00"
+              />
+            </div>
           </div>
           <!-- Prazo -->
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col gap-2 min-h-[6.5rem]">
             <label class="text-rich-neon text-base font-bold" for="time-amount"
               >Prazo</label
             >
-            <div class="flex gap-3">
+            <div
+              class="flex border-2 border-solid border-rich-neon rounded-lg overflow-hidden"
+            >
               <input
-                class="bg-rich-input p-2 border-2 border-solid border-rich-neon rounded-lg text-rich-text w-1/2"
+                class="bg-rich-input p-2 text-rich-text w-1/2"
                 type="text"
                 placeholder="0"
                 id="time-amount"
@@ -62,7 +75,7 @@
                 required
               />
               <select
-                class="bg-rich-input p-2 border-2 border-solid border-rich-neon rounded-lg text-rich-text w-1/2"
+                class="bg-rich-input p-2 border-l-2 border-solid border-rich-soft text-rich-text w-1/2 outline-none"
                 id="time-amount-period"
               >
                 <option value="monthly">Mensal</option>
@@ -71,13 +84,15 @@
             </div>
           </div>
           <!-- Rentabilidade -->
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col gap-2 min-h-[6.5rem]">
             <label class="text-rich-neon text-base font-bold" for="return-rate"
               >Rentabilidade</label
             >
-            <div class="flex gap-3">
+            <div
+              class="flex border-2 border-solid border-rich-neon rounded-lg overflow-hidden"
+            >
               <input
-                class="bg-rich-input p-2 border-2 border-solid border-rich-neon rounded-lg text-rich-text w-1/2"
+                class="bg-rich-input p-2 text-rich-text w-1/2"
                 type="text"
                 placeholder="%"
                 id="return-rate"
@@ -85,7 +100,7 @@
                 required
               />
               <select
-                class="bg-rich-input p-2 border-2 border-solid border-rich-neon rounded-lg text-rich-text w-1/2"
+                class="bg-rich-input p-2 border-l-2 border-solid border-rich-soft text-rich-text w-1/2 outline-none"
                 id="evoluation-period"
               >
                 <option value="monthly">Mensal</option>
@@ -94,18 +109,22 @@
             </div>
           </div>
           <!-- Imposto sobre lucro -->
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col gap-2 min-h-[6.5rem]">
             <label class="text-rich-neon text-base font-bold" for="tax-rate"
               >Impostos sobre lucro</label
             >
-            <input
-              class="bg-rich-input p-2 border-2 border-solid border-rich-neon rounded-lg text-rich-text"
-              type="text"
-              placeholder="%"
-              id="tax-rate"
-              name="tax-rate"
-              required
-            />
+            <div
+              class="border-2 border-solid border-rich-neon rounded-lg overflow-hidden"
+            >
+              <input
+                class="bg-rich-input p-2 text-rich-text w-full"
+                type="text"
+                placeholder="%"
+                id="tax-rate"
+                name="tax-rate"
+                required
+              />
+            </div>
           </div>
         </form>
         <div class="flex justify-center gap-2 w-full max-w-md">
@@ -118,7 +137,7 @@
           </button>
 
           <button
-            id=""
+            id="btn-clear-form"
             class="text-base w-1/2 px-5 py-3 bg-rich-gold rounded-lg font-bold text-rich-bg transition duration-300 ease-in hover:bg-rich-hoverGold"
           >
             Limpar
