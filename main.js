@@ -170,5 +170,5 @@ for (let i = 0; i < form.length; i++) {
   }
 }
 
-form.addEventListener("submit", renderProgression);
+// form.addEventListener("submit", renderProgression);
 buttonClearElement.addEventListener("click", clearForm);
