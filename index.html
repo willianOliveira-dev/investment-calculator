@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <title>Calculadora de Investimento</title>
   </head>
-  <body class="grid grid-cols-3 grid-rows-2 gap-4 h-[100dvh]" >
+  <body class="grid grid-cols-3 grid-rows-2 h-[100dvh]">
     <aside class="flex items-center justify-center row-span-2 bg-rich-bg">
       <div
         class="flex flex-col gap-4 items-center border-4 border-solid rounded-3xl border-rich-neon px-4 py-8 shadow-2xl shadow-rich-neon/50 w-full max-w-lg"
@@ -145,14 +145,14 @@
         </div>
       </div>
     </aside>
-    <main class="h-full">
-      <section id="charts-container">
-        <div class="h-[36dvh]">
-          <h2>Resultado Final</h2>
+    <main class="row-span-2 col-span-2">
+      <section id="charts-container" class="h-full px-4 py-8">
+        <div class="h-[36%] flex flex-col items-center pb-10">
+          <p class="font-bold text-lg">Resultado Final</p>
           <canvas id="final-money-distribution"></canvas>
         </div>
-        <div class="h-[56dvh]">
-          <h2>Progressão</h2>
+        <div class="h-[56%] flex flex-col items-center">
+          <p class="font-bold text-lg">Progressão</p>
           <canvas id="progression"></canvas>
         </div>
       </section>
