@@ -2,6 +2,14 @@ const isNonEmptyArray = (arrayElement) => {
   return Array.isArray(arrayElement) && arrayElement.length > 0;
 };
 
+export function resetTable(tableID) {
+  const table = document.getElementById(tableID);
+  if (!table || table.nodeName !== "TABLE") {
+    throw new Error("Id informado não corresponde a nenhum elemento table.");
+  }
+  table.innerHTML = "";
+}
+
 export const createTable = (columnsArray, dataArray, tableId) => {
   if (
     !isNonEmptyArray(columnsArray) ||
@@ -18,7 +26,7 @@ export const createTable = (columnsArray, dataArray, tableId) => {
   if (!tableElement || tableElement.nodeName !== "TABLE") {
     throw new Error("Id informado não corresponde a nenhum elemento table.");
   }
-
+  resetTable(tableId);
   createTableHeader(tableElement, columnsArray);
   createTableBody(tableElement, dataArray, columnsArray);
 };

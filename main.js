@@ -1,6 +1,6 @@
 import { generateReturnsArray } from "./src/investmentGoals";
 import { Chart } from "chart.js/auto";
-import { createTable } from "./src/table";
+import { createTable, resetTable } from "./src/table";
 
 const finalMoneyChart = document.getElementById("final-money-distribution");
 const progressionChart = document.getElementById("progression");
@@ -209,7 +209,7 @@ function clearForm() {
       element.value = "";
     }
   });
-
+  resetTable("results-table");
   resetCharts();
   const inputContainers = document.querySelectorAll(".error");
   inputContainers.forEach((inputContainer) => {
