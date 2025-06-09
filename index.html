@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css" />
     <title>Calculadora de Investimento</title>
   </head>
-  <body class="grid grid-cols-3 grid-rows-2 h-[100dvh] bg-rich-bg">
-    <aside class="flex items-center justify-center row-span-2">
+  <body class="grid grid-cols-3 grid-rows-2 h-[100dvh]">
+    <aside class="flex items-center justify-center row-span-2 bg-rich-bg">
       <div
-        class="flex flex-col gap-4 items-center border-4 border-solid rounded-3xl border-rich-neon px-4 py-8 shadow-2xl shadow-rich-neon/50 w-full max-w-lg"
+        class="flex flex-col gap-4 items-center border-4 border-solid rounded-3xl border-rich-highlight px-4 py-8 shadow-2xl shadow-rich-highlight/50 w-full max-w-lg"
       >
-        <h1 class="text-3xl text-rich-neon text-shadow-lg/30 font-bold">
+        <h1 class="text-3xl text-rich-highlight text-shadow-lg/30 font-bold">
           Calculadora de Investimento
         </h1>
         <form
@@ -22,12 +22,12 @@
           <!-- Investimento inicial -->
           <div class="flex flex-col gap-2 min-h-[6.5rem]">
             <label
-              class="text-rich-neon text-base font-bold"
+              class="text-rich-highlight text-base font-bold"
               for="starting-amount"
               >Investimento inicial</label
             >
             <div
-              class="border-2 border-solid border-rich-neon rounded-lg overflow-hidden"
+              class="border-2 border-solid border-rich-highlight rounded-lg overflow-hidden"
             >
               <input
                 class="bg-rich-input p-2 text-rich-text w-full"
@@ -42,12 +42,12 @@
           <!--Aportes adicionais  -->
           <div class="flex flex-col gap-2 min-h-[6.5rem]">
             <label
-              class="text-rich-neon text-base font-bold"
+              class="text-rich-highlight text-base font-bold"
               for="additional-contribution"
               >Aportes adicionais</label
             >
             <div
-              class="border-2 border-solid border-rich-neon rounded-lg overflow-hidden"
+              class="border-2 border-solid border-rich-highlight rounded-lg overflow-hidden"
             >
               <input
                 class="bg-rich-input p-2 text-rich-text w-full"
@@ -60,11 +60,13 @@
           </div>
           <!-- Prazo -->
           <div class="flex flex-col gap-2 min-h-[6.5rem]">
-            <label class="text-rich-neon text-base font-bold" for="time-amount"
+            <label
+              class="text-rich-highlight text-base font-bold"
+              for="time-amount"
               >Prazo</label
             >
             <div
-              class="flex border-2 border-solid border-rich-neon rounded-lg overflow-hidden"
+              class="flex border-2 border-solid border-rich-highlight rounded-lg overflow-hidden"
             >
               <input
                 class="bg-rich-input p-2 text-rich-text w-1/2"
@@ -85,11 +87,13 @@
           </div>
           <!-- Rentabilidade -->
           <div class="flex flex-col gap-2 min-h-[6.5rem]">
-            <label class="text-rich-neon text-base font-bold" for="return-rate"
+            <label
+              class="text-rich-highlight text-base font-bold"
+              for="return-rate"
               >Rentabilidade</label
             >
             <div
-              class="flex border-2 border-solid border-rich-neon rounded-lg overflow-hidden"
+              class="flex border-2 border-solid border-rich-highlight rounded-lg overflow-hidden"
             >
               <input
                 class="bg-rich-input p-2 text-rich-text w-1/2"
@@ -110,11 +114,13 @@
           </div>
           <!-- Imposto sobre lucro -->
           <div class="flex flex-col gap-2 min-h-[6.5rem]">
-            <label class="text-rich-neon text-base font-bold" for="tax-rate"
+            <label
+              class="text-rich-highlight text-base font-bold"
+              for="tax-rate"
               >Impostos sobre lucro</label
             >
             <div
-              class="border-2 border-solid border-rich-neon rounded-lg overflow-hidden"
+              class="border-2 border-solid border-rich-highlight rounded-lg overflow-hidden"
             >
               <input
                 class="bg-rich-input p-2 text-rich-text w-full"
@@ -129,7 +135,7 @@
         </form>
         <div class="flex justify-center gap-2 w-full max-w-md">
           <button
-            class="text-base w-1/2 px-5 py-3 bg-rich-neon rounded-lg font-bold text-rich-bg transition-opacity duration-300 ease-in hover:opacity-75"
+            class="text-base w-1/2 px-5 py-3 bg-rich-highlight rounded-lg font-bold text-rich-bg transition-opacity duration-300 ease-in hover:opacity-75"
             id="calculate-results"
             form="investment-form"
           >
@@ -145,24 +151,47 @@
         </div>
       </div>
     </aside>
-    <main class="row-span-2 col-span-2">
-      <!-- <section id="charts-container" class="h-full px-4 py-8">
-        <div class="h-[36%] flex flex-col items-center pb-10">
-          <p class="font-bold text-lg">Resultado Final</p>
-          <canvas id="final-money-distribution"></canvas>
-        </div>
-        <div class="h-[56%] flex flex-col items-center">
-          <p class="font-bold text-lg">Progressão</p>
-          <canvas id="progression"></canvas>
-        </div>
-      </section> -->
-      <section id="table-container" class="h-full overflow-y-auto">
-        <p class="font-bold text-lg text-center text-rich-neon">Resultados Mensais</p>
-        <table
-          id="results-table"
-          class="w-full max-h-full border border-separate"
-        ></table>
-      </section>
+    <main class="row-span-2 col-span-2 overflow-hidden relative">
+      <button
+        id="button-previous"
+        class="absolute w-[1.5vw] text-4xl font-bold cursor-pointer text-slate-300 bg-slate-400 top-0 bottom-0 left-0 opacity-50 hover:opacity-100 z-10"
+      >
+        &#8249;
+      </button>
+      <button
+        id="button-next"
+        class="absolute w-[1.5vw] text-4xl font-bold cursor-pointer text-slate-300 bg-slate-400 top-0 bottom-0 right-0 opacity-50 hover:opacity-100 z-10"
+      >
+        &#8250;
+      </button>
+      <div
+        id="carousel-container"
+        class="flex w-full h-full transition-transform ease-in duration-500"
+      >
+        <section
+          id="charts-container"
+          class="h-full px-4 py-8 basis-full shrink-0"
+        >
+          <div class="h-[36%] flex flex-col items-center pb-10">
+            <p class="font-bold text-lg">Resultado Final</p>
+            <canvas id="final-money-distribution"></canvas>
+          </div>
+          <div class="h-[56%] flex flex-col items-center">
+            <p class="font-bold text-lg">Progressão</p>
+            <canvas id="progression"></canvas>
+          </div>
+        </section>
+        <section
+          id="table-container"
+          class="h-full overflow-y-auto basis-full shrink-0"
+        >
+          <p class="font-bold text-lg text-center">Resultados Mensais</p>
+          <table
+            id="results-table"
+            class="w-full max-h-full border border-separate"
+          ></table>
+        </section>
+      </div>
     </main>
     <script type="module" src="./main.js" defer></script>
   </body>

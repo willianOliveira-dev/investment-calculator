@@ -33,7 +33,7 @@ function createTableHeader(tableReference, columnsArray) {
   const tableHeaderReference =
     document.querySelector("thead") ?? createTheadElement(tableReference);
   const headerRow = document.createElement("tr");
-  ["bg-rich-neon", "text-rich-input", "sticky", "top-0"].forEach((cssClass) =>
+  ["bg-rich-input", "text-rich-text", "sticky", "top-0"].forEach((cssClass) =>
     headerRow.classList.add(cssClass)
   );
   for (const columnArrayObject of columnsArray) {
@@ -57,9 +57,7 @@ function createTableBody(tableReference, tableItems, columnsArray) {
     const tableRow = document.createElement("tr");
 
     if (itemIndex % 2 !== 0) {
-      tableRow.classList.add("bg-rich-input", "text-rich-neon");
-    } else {
-      tableRow.classList.add("text-rich-text");
+      tableRow.classList.add("bg-rich-highlight");
     }
 
     for (const tableColumn of columnsArray) {

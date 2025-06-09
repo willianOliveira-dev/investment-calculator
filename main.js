@@ -6,38 +6,69 @@ const finalMoneyChart = document.getElementById("final-money-distribution");
 const progressionChart = document.getElementById("progression");
 const form = document.getElementById("investment-form");
 const buttonClearElement = document.getElementById("btn-clear-form");
+
 let dougnhutChartReference = {};
 let progressionChartReference = {};
+
+let currentIndex = 0;
+const carouselContainer = document.getElementById("carousel-container");
+const buttonElementPrevious = document.getElementById("button-previous");
+const buttonElementNext = document.getElementById("button-next");
+
+function updateCarousel() {
+  carouselContainer.style.transform = `translate(-${currentIndex * 100}%)`;
+}
+
+function buttonNext() {
+  if (currentIndex < carouselContainer.children.length - 1) {
+    currentIndex++;
+    updateCarousel();
+  }
+}
+
+function buttonPrevious() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCarousel();
+  }
+}
+
+buttonElementNext.addEventListener("click", buttonNext);
+buttonElementPrevious.addEventListener("click", buttonPrevious);
 
 const columnsArray = [
   { columnLabel: "Mês", accessor: "month" },
   {
     columnLabel: "Total Investido",
     accessor: "investedAmount",
-    format: (info) => formatCurrency(info),
+    format: (info) => formatCurrencyToTable(info),
   },
   {
     columnLabel: "Rendimento Mensal",
     accessor: "interestReturns",
-    format: (info) => formatCurrency(info),
+    format: (info) => formatCurrencyToTable(info),
   },
   {
     columnLabel: "Rendimento Total",
     accessor: "totalInterestReturns",
-    format: (info) => formatCurrency(info),
+    format: (info) => formatCurrencyToTable(info),
   },
   {
     columnLabel: "Quantia Total",
     accessor: "totalAmount",
-    format: (info) => formatCurrency(info),
+    format: (info) => formatCurrencyToTable(info),
   },
 ];
 
-function formatCurrency(value) {
+function formatCurrencyToTable(value) {
   return value.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
   });
+}
+
+function formatCurrencyToChart(value) {
+  return value.toFixed(2);
 }
 
 function isObjectEmpty(obj) {
@@ -84,26 +115,22 @@ function renderProgression(e) {
 
   const finalInvestementObject = returnsArray[returnsArray.length - 1];
 
-  /*dougnhutChartReference = new Chart(finalMoneyChart, {
+  dougnhutChartReference = new Chart(finalMoneyChart, {
     type: "doughnut",
     data: {
       labels: ["Total Investido", "Rendimento", "Imposto"],
       datasets: [
         {
           data: [
-            formatCurrency(finalInvestementObject.investedAmount),
-            formatCurrency(
+            formatCurrencyToChart(finalInvestementObject.investedAmount),
+            formatCurrencyToChart(
               finalInvestementObject.totalInterestReturns * (1 - taxRate / 100)
             ),
-            formatCurrency(
+            formatCurrencyToChart(
               finalInvestementObject.totalInterestReturns * (taxRate / 100)
             ),
           ],
-          backgroundColor: [
-            "rgb(0, 51, 102)",
-            "rgb(0,255, 174)",
-            "rgb(255, 255, 1)",
-          ],
+          backgroundColor: ["#28bfe4", "#80c769", "#e8a726"],
           hoverOffset: 4,
         },
       ],
@@ -118,16 +145,16 @@ function renderProgression(e) {
         {
           label: "Total Investido",
           data: returnsArray.map((investmentObject) =>
-            formatCurrency(investmentObject.investedAmount)
+            formatCurrencyToChart(investmentObject.investedAmount)
           ),
-          backgroundColor: "rgb(0, 51, 102)",
+          backgroundColor: "#28bfe4",
         },
         {
           label: "Retorno de Insvestimento",
           data: returnsArray.map((investmentObject) =>
-            formatCurrency(investmentObject.interestReturns)
+            formatCurrencyToChart(investmentObject.interestReturns)
           ),
-          backgroundColor: "rgb(0,255, 174)",
+          backgroundColor: "#80c769",
         },
       ],
     },
@@ -143,7 +170,6 @@ function renderProgression(e) {
       },
     },
   });
-  */
 
   createTable(columnsArray, returnsArray, "results-table");
 }

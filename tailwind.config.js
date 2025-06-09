@@ -5,11 +5,11 @@ export default {
     extend: {
       colors: {
         rich: {
-          bg: "#101d25",
-          neon: "#00ffae",
-          gold: " bg-rich-bg",
+          bg: "#006DAA",
+          highlight: "#9DCEFF",
+          gold: "#ffca29",
           hoverGold: "#ffca28",
-          input: "#0d141a",
+          input: "#003559",
           text: "#ffffff",
         },
       },
