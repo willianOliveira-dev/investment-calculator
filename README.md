@@ -14,7 +14,7 @@ Este projeto é uma calculadora de investimentos desenvolvida com **HTML**, **Ta
 
 ---
 
-## 📊 Funcionalidades
+##  Funcionalidades
 
 - Entrada de valor inicial, aportes mensais, taxa de juros e tempo de investimento;
 - Cálculo automático de juros compostos;
