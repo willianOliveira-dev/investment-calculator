@@ -1,5 +1,6 @@
 import { generateReturnsArray } from "./src/investmentGoals";
 import { Chart } from "chart.js/auto";
+import { createTable } from "./src/table";
 
 const finalMoneyChart = document.getElementById("final-money-distribution");
 const progressionChart = document.getElementById("progression");
@@ -8,8 +9,35 @@ const buttonClearElement = document.getElementById("btn-clear-form");
 let dougnhutChartReference = {};
 let progressionChartReference = {};
 
+const columnsArray = [
+  { columnLabel: "Mês", accessor: "month" },
+  {
+    columnLabel: "Total Investido",
+    accessor: "investedAmount",
+    format: (info) => formatCurrency(info),
+  },
+  {
+    columnLabel: "Rendimento Mensal",
+    accessor: "interestReturns",
+    format: (info) => formatCurrency(info),
+  },
+  {
+    columnLabel: "Rendimento Total",
+    accessor: "totalInterestReturns",
+    format: (info) => formatCurrency(info),
+  },
+  {
+    columnLabel: "Quantia Total",
+    accessor: "totalAmount",
+    format: (info) => formatCurrency(info),
+  },
+];
+
 function formatCurrency(value) {
-  return value.toFixed(2);
+  return value.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
 }
 
 function isObjectEmpty(obj) {
@@ -56,7 +84,7 @@ function renderProgression(e) {
 
   const finalInvestementObject = returnsArray[returnsArray.length - 1];
 
-  dougnhutChartReference = new Chart(finalMoneyChart, {
+  /*dougnhutChartReference = new Chart(finalMoneyChart, {
     type: "doughnut",
     data: {
       labels: ["Total Investido", "Rendimento", "Imposto"],
@@ -115,6 +143,9 @@ function renderProgression(e) {
       },
     },
   });
+  */
+
+  createTable(columnsArray, returnsArray, "results-table");
 }
 
 function validateInput(e) {
@@ -170,5 +201,5 @@ for (let i = 0; i < form.length; i++) {
   }
 }
 
-// form.addEventListener("submit", renderProgression);
+form.addEventListener("submit", renderProgression);
 buttonClearElement.addEventListener("click", clearForm);

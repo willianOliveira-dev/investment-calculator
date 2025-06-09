@@ -7,7 +7,7 @@ export default {
         rich: {
           bg: "#101d25",
           neon: "#00ffae",
-          gold: "#ffd54f",
+          gold: " bg-rich-bg",
           hoverGold: "#ffca28",
           input: "#0d141a",
           text: "#ffffff",

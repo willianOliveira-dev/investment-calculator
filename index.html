@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style.css" />
     <title>Calculadora de Investimento</title>
   </head>
-  <body class="grid grid-cols-3 grid-rows-2 h-[100dvh]">
-    <aside class="flex items-center justify-center row-span-2 bg-rich-bg">
+  <body class="grid grid-cols-3 grid-rows-2 h-[100dvh] bg-rich-bg">
+    <aside class="flex items-center justify-center row-span-2">
       <div
         class="flex flex-col gap-4 items-center border-4 border-solid rounded-3xl border-rich-neon px-4 py-8 shadow-2xl shadow-rich-neon/50 w-full max-w-lg"
       >
@@ -156,7 +156,14 @@
           <canvas id="progression"></canvas>
         </div>
       </section> -->
+      <section id="table-container" class="h-full overflow-y-auto">
+        <p class="font-bold text-lg text-center text-rich-neon">Resultados Mensais</p>
+        <table
+          id="results-table"
+          class="w-full max-h-full border border-separate"
+        ></table>
+      </section>
     </main>
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./main.js" defer></script>
   </body>
 </html>
